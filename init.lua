@@ -603,7 +603,14 @@ require('lazy').setup({
       --  See `:help lsp-config` for information about keys and how to configure
       ---@type table<string, vim.lsp.Config>
       local servers = {
-        -- clangd = {},
+        clangd = {
+          cmd = {
+            'clangd',
+            '--clang-tidy',
+            '--header-insertion=never',
+          },
+          filetypes = { 'c', 'cpp'},
+        },
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
