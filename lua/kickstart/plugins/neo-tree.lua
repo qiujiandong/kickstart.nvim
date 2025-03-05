@@ -4,27 +4,39 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
+  lazy = false,
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
     'MunifTanjim/nui.nvim',
   },
   cmd = 'Neotree',
-  keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
-  },
-  opts = {
-    filesystem = {
-      filtered_items = {
-        visiable = true,
-        hide_dotfiles = false,
-        hide_gitignored = false,
-      },
-      window = {
-        mappings = {
-          ['\\'] = 'close_window',
+
+  config = function()
+    require('neo-tree').setup {
+      event_handlers = {
+        {
+          event = 'file_opened',
+          handler = function()
+            require('neo-tree.command').execute { action = 'close' }
+          end,
         },
       },
-    },
-  },
+      filesystem = {
+        use_libuv_file_watcher = true,
+        filtered_items = {
+          visiable = true,
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
+      },
+      window = {
+        width = 30,
+        position = 'left',
+      },
+    }
+
+    vim.keymap.set('n', '<TAB>', ':Neotree toggle<CR>', { desc = '[T]oggle Neotree', noremap = true, silent = true })
+    vim.keymap.set('n', '<leader>o', ':Neotree focus<CR>', { desc = '[O]pen Neotree', noremap = true, silent = true })
+  end,
 }
