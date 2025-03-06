@@ -168,16 +168,7 @@ vim.o.confirm = true
 --  See `:help vim.keymap.set()`
 
 -- Delete current buffer
-vim.keymap.set('n', '<leader>bd', function()
-  local bufs = vim.fn.getbufinfo { buflisted = 1 }
-  if #bufs == 1 then
-    vim.cmd 'bd'
-  else
-    vim.cmd 'bun'
-  end
-end, { noremap = true, silent = true, desc = '[B]uffer [D]elete(Unload)' })
-
-vim.keymap.set('n', '<leader>bD', '<cmd>bd<CR>', { noremap = true, silent = true, desc = '[B]uffer [D]elete' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bd<CR>', { noremap = true, silent = true, desc = '[B]uffer [D]elete' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
