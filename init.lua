@@ -171,6 +171,9 @@ vim.keymap.set('n', '<leader>bd', '<cmd>bd<CR>', { noremap = true, silent = true
 --  See `:help hlsearch`
 vim.keymap.set('n', '<leader>nh', '<cmd>nohlsearch<CR>', { desc = '[N]o [H]ighlight' })
 
+-- Save file
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
