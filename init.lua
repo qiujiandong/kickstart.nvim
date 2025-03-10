@@ -196,6 +196,13 @@ vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite' })
 -- Quit window
 vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit' })
 
+-- Auto reload file when the file is modified outside
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'FocusGained' }, {
+  pattern = '*',
+  command = "if mode() != 'c' | checktime | endif",
+})
+
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
