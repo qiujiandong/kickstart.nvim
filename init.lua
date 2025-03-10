@@ -169,6 +169,9 @@ vim.keymap.set('n', '<leader>nh', '<cmd>nohlsearch<CR>', { desc = '[N]o [H]ighli
 -- Save file
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite' })
 
+-- Quit window
+vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
