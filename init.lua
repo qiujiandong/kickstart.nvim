@@ -194,7 +194,7 @@ vim.diagnostic.config {
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite' })
 
 -- Quit window
-vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit' })
+-- vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit' })
 
 -- Auto reload file when the file is modified outside
 vim.o.autoread = true
