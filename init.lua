@@ -175,7 +175,7 @@ vim.keymap.set('n', '<leader>nh', '<cmd>nohlsearch<CR>', { desc = '[N]o [H]ighli
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite' })
 
 -- Quit window
-vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit' })
+-- vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit' })
 
 -- Auto reload file when the file is modified outside
 vim.o.autoread = true
