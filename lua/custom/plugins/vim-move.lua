@@ -7,6 +7,7 @@ return {
     { '<S-l>', '<Plug>MoveBlockRight', mode = 'v' },
   },
   config = function()
+    vim.g.move_key_modifier = 'none'
     vim.g.move_key_modifier_visualmode = 'S'
   end,
 }
