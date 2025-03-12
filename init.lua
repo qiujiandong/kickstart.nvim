@@ -172,7 +172,7 @@ vim.keymap.set('n', '<leader>bd', '<cmd>bd<CR>', { noremap = true, silent = true
 vim.keymap.set('n', '<leader>nh', '<cmd>nohlsearch<CR>', { desc = '[N]o [H]ighlight' })
 
 -- Save file
-vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite' })
+vim.keymap.set('n', '<leader>x', '<cmd>w<CR>', { desc = 'Save buffer' })
 
 -- Quit window
 -- vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit' })
