@@ -682,6 +682,7 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         -- You can add other tools here that you want Mason to install
         'clang-format', -- Used to format C/C++ code
+        'yamlfmt', -- Used to format yaml file
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -726,6 +727,8 @@ require('lazy').setup({
       },
       -- You can also specify external formatters in here.
       formatters_by_ft = {
+        lua = { 'stylua' },
+        yaml = { 'yamlfmt' },
         -- rust = { 'rustfmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
