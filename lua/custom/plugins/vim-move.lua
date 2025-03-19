@@ -1,13 +1,11 @@
 return {
   'matze/vim-move',
-  keys = {
-    { '<S-j>', '<Plug>MoveBlockDown', mode = 'v' },
-    { '<S-k>', '<Plug>MoveBlockUp', mode = 'v' },
-    { '<S-h>', '<Plug>MoveBlockLeft', mode = 'v' },
-    { '<S-l>', '<Plug>MoveBlockRight', mode = 'v' },
-  },
+  init = function()
+    -- disable automatic key maps
+    vim.g.move_map_keys = 0
+  end,
   config = function()
-    vim.g.move_key_modifier = 'none'
-    vim.g.move_key_modifier_visualmode = 'S'
+    vim.keymap.set('v', '<S-j>', '<Plug>MoveBlockDown', { silent = true })
+    vim.keymap.set('v', '<S-k>', '<Plug>MoveBlockUp', { silent = true })
   end,
 }
