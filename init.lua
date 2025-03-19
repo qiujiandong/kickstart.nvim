@@ -189,6 +189,9 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'FocusGained' }, {
   command = "if mode() != 'c' | checktime | endif",
 })
 
+-- disable <C-u> in [I]nsert mode
+vim.keymap.set('i', '<C-u>', '<Nop>', { noremap = true, silent = true })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
