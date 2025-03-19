@@ -356,6 +356,9 @@ require('lazy').setup({
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { 'gs', group = '[S]urrounding', mode = { 'n', 'x' } },
+        { '<leader>g', group = '[G]it', mode = { 'n' } },
+        { '<leader>b', group = '[B]uffer', mode = { 'n' } },
       },
     },
   },
@@ -959,7 +962,17 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      require('mini.surround').setup {
+        mappings = {
+          add = 'gsa',
+          delete = 'gsd',
+          replace = 'gsr',
+          find = 'gsf',
+          find_left = 'gsF',
+          highlight = 'gsh',
+          update_n_lines = 'gsn',
+        },
+      }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
