@@ -17,5 +17,6 @@ return {
     vim.keymap.set('n', '<M-B>', '<cmd>BufferLinePickClose<CR>')
     vim.keymap.set('n', '<M-l>', '<cmd>BufferLineCycleNext<CR>')
     vim.keymap.set('n', '<M-h>', '<cmd>BufferLineCyclePrev<CR>')
+    vim.keymap.set('n', '<leader>bD', '<cmd>BufferLineCloseOthers<CR>', { silent = true, desc = '[D]elete other [B]uffer' })
   end,
 }
