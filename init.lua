@@ -685,7 +685,15 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         -- You can add other tools here that you want Mason to install
+        'black',
         'clang-format', -- Used to format C/C++ code
+        'clangd',
+        'isort', -- python formatter
+        'lua-language-server',
+        'markdownlint',
+        'pyright',
+        'ruff', -- python linter
+        'stylua', -- Used to format Lua code
         'yamlfmt', -- Used to format yaml file
       })
 
@@ -732,7 +740,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         yaml = { 'yamlfmt' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -956,7 +964,7 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
