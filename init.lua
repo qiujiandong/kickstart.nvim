@@ -249,6 +249,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.hl.on_yank() end,
 })
 
+if vim.fn.executable 'fcitx5-remote' == 1 then
+  vim.g.fcitx5_last_state = 0
+  vim.api.nvim_create_autocmd('InsertEnter', {
+    callback = function()
+      if vim.g.fcitx5_last_state == 2 then
+        os.execute 'fcitx5-remote -o'
+      end
+    end,
+  })
+
+  vim.api.nvim_create_autocmd('InsertLeave', {
+    callback = function()
+      vim.g.fcitx5_last_state = tonumber(vim.fn.system 'fcitx5-remote')
+      os.execute 'fcitx5-remote -c'
+    end,
+  })
+end
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
