@@ -769,6 +769,7 @@ require('lazy').setup({
         'lua-language-server',
         'markdownlint',
         'pyright',
+        'rstcheck',
         'stylua', -- Used to format Lua code
         'yamlfmt', -- Used to format yaml file
       })
