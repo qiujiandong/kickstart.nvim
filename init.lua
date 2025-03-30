@@ -707,6 +707,7 @@ require('lazy').setup({
         'clang-format', -- Used to format C/C++ code
         'clangd',
         'isort', -- python formatter
+        'jq',
         'lua-language-server',
         'markdownlint',
         'pyright',
@@ -759,7 +760,7 @@ require('lazy').setup({
         yaml = { 'yamlfmt' },
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
-        --
+        json = { 'jq' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
       },
