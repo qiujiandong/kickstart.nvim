@@ -29,6 +29,13 @@ return {
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
     { '<F5>', function() require('dap').continue() end, desc = 'Debug: Start/Continue' },
+    {
+      '<F6>',
+      function()
+        require('dapui').close()
+        require('dap').disconnect()
+      end,
+    },
     { '<F1>', function() require('dap').step_into() end, desc = 'Debug: Step Into' },
     { '<F2>', function() require('dap').step_over() end, desc = 'Debug: Step Over' },
     { '<F3>', function() require('dap').step_out() end, desc = 'Debug: Step Out' },
@@ -110,6 +117,17 @@ return {
       command = open_debug_ad7,
       options = {
         detached = false,
+      },
+    }
+
+    -- Neovim lua plugin debug configuration
+    dap.adapters.nlua = function(callback, config) callback { type = 'server', host = '127.0.0.1', port = config.port or 8086 } end
+
+    dap.configurations.lua = {
+      {
+        type = 'nlua',
+        request = 'attach',
+        name = 'Attach to running Neovim',
       },
     }
   end,
