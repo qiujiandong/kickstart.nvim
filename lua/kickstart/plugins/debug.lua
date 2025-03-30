@@ -48,6 +48,7 @@ return {
     local dap = require 'dap'
     local dapui = require 'dapui'
     local mason_registry = require 'mason-registry'
+    local dap_vscode = require 'dap.ext.vscode'
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -130,5 +131,10 @@ return {
         name = 'Attach to running Neovim',
       },
     }
+
+    -- parse launch.json need json5 support
+    dap_vscode.json_decode = require('json5').parse
+    -- load launch.json from .vscode
+    dap_vscode.getconfigs(nil)
   end,
 }
