@@ -34,6 +34,13 @@ return {
       desc = 'Debug: Start/Continue',
     },
     {
+      '<F6>',
+      function()
+        require('dapui').close()
+        require('dap').disconnect()
+      end,
+    },
+    {
       '<F1>',
       function() require('dap').step_into() end,
       desc = 'Debug: Step Into',
@@ -138,6 +145,19 @@ return {
       command = open_debug_ad7,
       options = {
         detached = false,
+      },
+    }
+
+    -- Neovim lua plugin debug configuration
+    dap.adapters.nlua = function(callback, config)
+      callback { type = 'server', host = '127.0.0.1', port = config.port or 8086 }
+    end
+
+    dap.configurations.lua = {
+      {
+        type = 'nlua',
+        request = 'attach',
+        name = 'Attach to running Neovim',
       },
     }
   end,
