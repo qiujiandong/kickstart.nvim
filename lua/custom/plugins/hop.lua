@@ -1,5 +1,5 @@
 return {
-  'phaazon/hop.nvim',
+  'smoka7/hop.nvim',
   branch = 'master', -- optional but strongly recommended
   config = function()
     local hop = require 'hop'
