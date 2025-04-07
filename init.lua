@@ -170,6 +170,9 @@ vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldlevel = 99
 
+-- Save session with more options
+vim.opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize' }
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -424,6 +427,8 @@ require('lazy').setup({
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+
+      { 'olimorris/persisted.nvim' },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -445,6 +450,8 @@ require('lazy').setup({
       -- Telescope picker. This is really useful to discover what Telescope can
       -- do as well as how to actually do it!
 
+      require('telescope').load_extension 'persisted'
+
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
@@ -460,6 +467,9 @@ require('lazy').setup({
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
+          },
+          persisted = {
+            layout_config = { width = 0.55, height = 0.55 },
           },
         },
       }
@@ -480,6 +490,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>se', ':Telescope persisted<CR>', { desc = '[S]earch S[e]ssion' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
