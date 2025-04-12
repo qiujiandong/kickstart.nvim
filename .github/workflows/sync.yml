@@ -1,0 +1,60 @@
+name: Rebase dev and master from Upstream
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 每天 00:00 UTC 运行
+  workflow_dispatch:       # 手动触发支持
+
+jobs:
+  rebase-dev:
+    name: Rebase dev branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dev branch
+        uses: actions/checkout@v3
+        with:
+          ref: dev
+          fetch-depth: 0
+
+      - name: Set up Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream and fetch
+        run: |
+          git remote add upstream https://github.com/nvim-lua/kickstart.nvim.git
+          git fetch upstream
+
+      - name: Rebase dev onto upstream/master
+        run: git rebase upstream/master
+
+      - name: Push rebased dev
+        run: git push --force-with-lease origin dev
+
+  rebase-master:
+    name: Rebase master branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v3
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Set up Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream and fetch
+        run: |
+          git remote add upstream https://github.com/nvim-lua/kickstart.nvim.git
+          git fetch upstream
+
+      - name: Rebase master onto upstream/master
+        run: git rebase upstream/master
+
+      - name: Push rebased master
+        run: git push --force-with-lease origin master
+
