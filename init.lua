@@ -177,7 +177,7 @@ vim.opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize' }
 --  See `:help vim.keymap.set()`
 
 -- Delete current buffer
-vim.keymap.set('n', 'gbd', '<cmd>bd<CR>', { noremap = true, silent = true, desc = '[B]uffer [D]elete' })
+vim.keymap.set('n', 'gd', '<cmd>bd<CR>', { noremap = true, silent = true, desc = '[B]uffer [D]elete' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -401,7 +401,7 @@ require('lazy').setup({
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { 'gs', group = '[S]urrounding', mode = { 'n', 'x' } },
         { '<leader>g', group = '[G]it', mode = { 'n' } },
-        { 'gb', group = '[B]uffer', mode = { 'n' } },
+        { 'gb', group = '[B]lock comment', mode = { 'n' } },
       },
     },
   },
