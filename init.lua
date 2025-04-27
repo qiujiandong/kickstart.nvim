@@ -202,9 +202,7 @@ vim.keymap.set('n', '<leader>x', '<cmd>w<CR>', { desc = 'Save buffer' })
 
 vim.keymap.set('n', '<leader>Q', function()
   vim.ui.input({ prompt = 'Quit all? [y/n](y): ' }, function(input)
-    if input == nil or input == '' or input:lower() == 'y' then
-      vim.cmd 'qa'
-    end
+    if input == nil or input == '' or input:lower() == 'y' then vim.cmd 'qa' end
   end)
 end, { desc = '[Q]uit All with Confirm' })
 
