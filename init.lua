@@ -738,7 +738,7 @@ require('lazy').setup({
         'pyright',
         'rstcheck',
         'sphinx-lint',
-        'stylua', -- Used to format Lua code
+        -- 'stylua', -- Used to format Lua code, the GLIBC in Ubuntu20.04 is too old
         'yamlfmt', -- Used to format yaml file
       })
 
