@@ -192,9 +192,6 @@ vim.api.nvim_create_autocmd('FileType', {
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Delete current buffer
-vim.keymap.set('n', 'gd', '<cmd>bd<CR>', { noremap = true, silent = true, desc = '[B]uffer [D]elete' })
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<leader>nh', '<cmd>nohlsearch<CR>', { desc = '[N]o [H]ighlight' })
@@ -220,9 +217,7 @@ vim.keymap.set('n', '<leader>x', '<cmd>w<CR>', { desc = 'Save buffer' })
 
 vim.keymap.set('n', '<leader>Q', function()
   vim.ui.input({ prompt = 'Quit all? [y/n](y): ' }, function(input)
-    if input == nil or input == '' or input:lower() == 'y' then
-      vim.cmd 'qa'
-    end
+    if input == nil or input == '' or input:lower() == 'y' then vim.cmd 'qa' end
   end)
 end, { desc = '[Q]uit All with Confirm' })
 
@@ -392,6 +387,8 @@ require('lazy').setup({
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { 'gr', group = 'LSP Actions', mode = { 'n' } },
+        { '<leader>m', group = '[M]ini.nvim', mode = { 'n' } },
+        { '<leader>d', group = '[D]iffview', mode = { 'n' } },
         { 'gs', group = '[S]urrounding', mode = { 'n', 'x' } },
         { '<leader>g', group = '[G]it', mode = { 'n' } },
         { 'gb', group = '[B]lock comment', mode = { 'n' } },
@@ -987,6 +984,16 @@ require('lazy').setup({
 
       -- ... and there is more!
       --  Check out: https://github.com/nvim-mini/mini.nvim
+
+      -- Easy to manipulate files and directories
+      local mf = require 'mini.files'
+      mf.setup {}
+      vim.keymap.set('n', '<leader>mf', mf.open, { desc = '[M]ini [F]iles' })
+
+      -- Remove buffer but not change window layout
+      local mb = require 'mini.bufremove'
+      mb.setup {}
+      vim.keymap.set('n', 'gd', mb.delete, { desc = '[M]ini buffer [D]elete' })
     end,
   },
 
