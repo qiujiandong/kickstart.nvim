@@ -237,6 +237,7 @@ vim.keymap.set('i', '<C-u>', '<Nop>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- change tab
+vim.keymap.set('n', '<leader>ts', ':tab split<CR>', { silent = true, desc = '[T]ab [S]plit' })
 vim.keymap.set('n', '<M-p>', ':tabprevious<CR>', { desc = '[P]revious tab' })
 vim.keymap.set('n', '<M-n>', ':tabnext<CR>', { desc = '[N]ext tab' })
 
@@ -496,6 +497,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sc', builtin.commands, { desc = '[S]earch [C]ommands' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>se', ':Telescope persisted<CR>', { desc = '[S]earch S[e]ssion' })
+      vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[S]earch [M]arks' })
 
       -- This runs on LSP attach per buffer (see main LSP attach function in 'neovim/nvim-lspconfig' config for more info,
       -- it is better explained there). This allows easily switching between pickers if you prefer using something else!
