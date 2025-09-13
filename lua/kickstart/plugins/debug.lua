@@ -137,7 +137,7 @@ return {
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     -- Get cpptools install location
-    local cpptools_path = mason_registry.get_package('cpptools'):get_install_path()
+    local cpptools_path = vim.fn.expand '$MASON/packages/cpptools'
     local open_debug_ad7 = cpptools_path .. '/extension/debugAdapters/bin/OpenDebugAD7'
 
     dap.adapters.cppdbg = {
