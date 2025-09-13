@@ -1,9 +1,11 @@
 return {
-  'ekickx/clipboard-image.nvim',
+  -- 'ekickx/clipboard-image.nvim', this repo has bug about checkhealth
+  'dfendr/clipboard-image.nvim',
+  branch = 'patch-1',
   opts = {
     default = {
-      img_dir = 'images',
-      img_dir_txt = 'images',
+      img_dir = { '%:p:h', '%:t:r' },
+      img_dir_txt = '',
       affix = '![](%s)',
       use_absolute_path = false,
       relative_to_current_file = true,
