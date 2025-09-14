@@ -19,3 +19,12 @@ return {
     { '<leader>lk', '<cmd>LazyGitLog<cr>', desc = 'LazyGit Log' },
   },
 }
+
+-- Here shows some lazygit configs:
+-- ~/.config/lazygit/config.yml
+-- git:
+--   log:
+--     showGraph: always
+--     showWholeGraph: true
+--   commit:
+--     signOff: true
