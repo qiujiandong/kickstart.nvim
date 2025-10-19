@@ -765,6 +765,7 @@ require('lazy').setup({
         'sphinx-lint',
         -- 'stylua', -- Used to format Lua code, the GLIBC in Ubuntu20.04 is too old
         'yamlfmt', -- Used to format yaml file
+        'copilot-language-server',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -820,7 +821,7 @@ require('lazy').setup({
         python = { 'isort', 'black' },
         json = { 'jq' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        javascript = { "prettier" },
+        javascript = { 'prettier' },
       },
     },
   },
