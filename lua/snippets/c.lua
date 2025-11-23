@@ -4,16 +4,31 @@ local f = ls.function_node
 local i = ls.insert_node
 local fmt = require('luasnip.extras.fmt').fmt
 
-return {
+-- Cache the current date to avoid multiple os.date() calls
+local current_date = os.date '%Y-%m-%d'
+local current_year = os.date '%Y'
+
+-- Helper to safely get git config values
+local function get_git_config(key)
+  local handle = io.popen('git config ' .. key)
+  if handle then
+    local result = handle:read '*a'
+    handle:close()
+    return result:gsub('\n', ''):gsub('^%s+', ''):gsub('%s+$', '')
+  end
+  return 'Unknown'
+end
+
+ls.add_snippets('c', {
   -- C file header snippet
   s(
     'header_apache',
     fmt(
       [[
 /**
- * @file {project}.c
- * @brief {description}
- * @author Jiandong Qiu
+ * @file {}
+ * @brief {}
+ * @author {} <{}>
  * @date {}
  *
  * Copyright (c) {} Jiandong Qiu
@@ -34,13 +49,23 @@ return {
 
 ]],
       {
-        project = i(1, 'ProjectName'),
-        description = i(2, 'Short description'),
         f(function()
-          return os.date '%Y-%m-%d'
+          return vim.fn.expand '%:t'
         end),
-        os.date '%Y',
+        i(1, 'Short description'),
+        f(function()
+          return get_git_config 'user.name'
+        end),
+        f(function()
+          return get_git_config 'user.email'
+        end),
+        f(function()
+          return current_date
+        end),
+        f(function()
+          return current_year
+        end),
       }
     )
   ),
-}
+})
