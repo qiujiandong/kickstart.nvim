@@ -25,6 +25,7 @@ return {
 -- git:
 --   log:
 --     showGraph: always
---     showWholeGraph: true
+--     order: topo-order
+--     showWholeGraph: false
 --   commit:
 --     signOff: true
