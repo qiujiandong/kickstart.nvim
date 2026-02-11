@@ -695,7 +695,7 @@ require('lazy').setup({
         clangd = {
           cmd = {
             'clangd',
-            '--query-driver=**/*gcc,**/*g++',
+            '--query-driver=**/*gcc,**/*g++,**/*c++,**/*cc',
             '--clang-tidy',
             '--header-insertion=never',
           },
