@@ -196,6 +196,8 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.opt_local.conceallevel = 2
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
