@@ -16,11 +16,27 @@ return {
     'nvim-lua/plenary.nvim',
   },
   opts = {
-    workspaces = {
-      {
-        name = 'personal',
-        path = '~/Documents/notes',
-      },
+    -- workspaces = {
+    --   {
+    --     name = 'personal',
+    --     path = '~/Documents/notes',
+    --   },
+    -- },
+    dir = '~/Documents/notes',
+    daily_notes = {
+      -- Optional, if you keep daily notes in a separate directory.
+      folder = 'dailies/' .. os.date '%Y/%m',
+      -- Optional, default tags to add to each new daily note created.
+      default_tags = { 'daily-notes' },
+      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+      template = 'default.md',
+    },
+    templates = {
+      folder = 'templates',
+      date_format = '%Y-%m-%d',
+      time_format = '%H:%M',
+      -- A map for custom variables, the key should be the variable and the value a function
+      substitutions = {},
     },
   },
 }
