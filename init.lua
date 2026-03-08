@@ -740,6 +740,16 @@ require('lazy').setup({
             Lua = {},
           },
         },
+
+        -- buf config
+        buf_ls = {
+          -- Command and arguments to start the server.
+          cmd = { 'buf', 'lsp', 'serve' },
+          -- Filetypes to automatically attach to.
+          filetypes = { 'proto' },
+          -- Set the workspace for the LSP to the directory of the first matching file.
+          root_markers = { 'buf.yaml', '.git' },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -819,6 +829,7 @@ require('lazy').setup({
         json = { 'jq' },
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettier' },
+        proto = { 'buf' },
       },
     },
   },
