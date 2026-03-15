@@ -29,3 +29,4 @@ return {
 --     showWholeGraph: false
 --   commit:
 --     signOff: true
+-- overrideGpg: true
