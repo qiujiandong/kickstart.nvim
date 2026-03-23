@@ -1,6 +1,6 @@
 return {
-  'qiujiandong/sidekick.nvim',
-  branch = 'balance_split',
+  'folke/sidekick.nvim',
+  branch = 'main',
   opts = {
     cli = {
       mux = {
@@ -42,11 +42,6 @@ return {
       function() require('sidekick.cli').prompt() end,
       mode = { 'n', 'x' },
       desc = 'Sidekick Select Prompt',
-    },
-    {
-      '<leader>ac',
-      function() require('sidekick.cli').toggle { name = 'qwen', focus = false } end,
-      desc = 'Sidekick Toggle Qwen',
     },
     {
       '<leader>ae',
