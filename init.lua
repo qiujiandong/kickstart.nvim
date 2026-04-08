@@ -755,6 +755,17 @@ require('lazy').setup({
           -- Set the workspace for the LSP to the directory of the first matching file.
           root_markers = { 'buf.yaml', '.git' },
         },
+
+        -- json lsp
+        jsonls = {
+          settings = {
+            json = {
+              schemaDownload = { enable = false },
+              schemas = {},
+              validate = { enable = true },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
