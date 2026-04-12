@@ -22,6 +22,7 @@ return {
     --     path = '~/Documents/notes',
     --   },
     -- },
+    ui = { enable = false },
     dir = '~/Documents/notes',
     daily_notes = {
       -- Optional, if you keep daily notes in a separate directory.
