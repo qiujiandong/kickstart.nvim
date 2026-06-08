@@ -1,5 +1,17 @@
 # kickstart.nvim
 
+> [!NOTE]
+> I have maintained this repository for a long time, but with the release of Neovim 0.12.0 and `vim.pack`,
+> kickstart.nvim has switched fully to `vim.pack` and removed `lazy.nvim` entirely, which makes it difficult
+> for me to keep using it. As a result, I have started maintaining my own Neovim configuration in my
+> [dotfiles](https://github.com/qiujiandong/dotfiles)
+> and managing plugins with [ZPack](https://github.com/zuqini/zpack.nvim).
+> With ZPack, migrating configurations from `lazy.nvim` to the `vim.pack` backend is straightforward.
+> 
+> From now on, this repo will be archived, and I will only keep it for reference.
+
+---
+
 ## Introduction
 
 A starting point for Neovim that is:
